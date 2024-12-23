@@ -1,0 +1,8 @@
+[submodule "Tools/xpack-openocd-0.11.0-3"]
+	path = Tools/xpack-openocd-0.11.0-3
+	url = https://github.com/burakenez/gd32-tools-xpack-openocd.git
+	tag = v0.11.0-3
+[submodule "Tools/xpack-arm-none-eabi-gcc-11.3.1-1.1"]
+	path = Tools/xpack-arm-none-eabi-gcc-11.3.1-1.1
+	url = https://github.com/burakenez/gd32-tools-xpack-arm-none-eabi-gcc.git
+	tag = v11.3.1-1.1
