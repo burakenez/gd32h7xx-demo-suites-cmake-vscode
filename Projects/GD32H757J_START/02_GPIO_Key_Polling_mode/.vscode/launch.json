@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/Build/Debug/Application/Application.elf",
+            "name": "Debug with OpenOCD",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "none",
+            "gdbPath": "${workspaceFolder}/../../../Tools/xpack-arm-none-eabi-gcc-11.3.1-1.1/bin/arm-none-eabi-gdb.exe",
+            "servertype": "openocd",
+            "serverpath": "${workspaceFolder}/../../../Tools/xpack-openocd-0.11.0-3/bin/openocd.exe",
+            "svdFile": "${workspaceFolder}/GD32H7xx.svd",			
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 1
+            },
+            "configFiles": [
+                "${workspaceFolder}/../../../Tools/xpack-openocd-0.11.0-3/scripts/target/${OPENOCD_TARGET_SCRIPT_FILE}"
+            ],
+            "searchDir": [
+                "${workspaceFolder}"
+            ],
+            "preLaunchTask": "Build",
+            "preRestartCommands": [
+                "load",
+                "continue"
+            ],
+        },
+    ]
+}

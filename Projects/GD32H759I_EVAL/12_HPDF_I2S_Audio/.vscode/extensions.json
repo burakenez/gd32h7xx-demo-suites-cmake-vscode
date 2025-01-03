@@ -1,0 +1,26 @@
+{
+  "recommendations": [
+    "ms-vscode.cmake-tools",
+    "ms-vscode.cpptools",
+    "ms-vscode.cpptools-extension-pack",
+    "ms-vscode.cpptools-themes",
+    "ms-vscode.vscode-embedded-tools",
+    "ms-vscode.hexeditor",
+    "ms-vscode.notepadplusplus-keybindings",
+    "twxs.cmake",
+    "xaver.clang-format",
+    "marus25.cortex-debug",
+    "cheshirekow.cmake-format",
+    "mcu-debug.debug-tracker-vscode",
+    "mcu-debug.memory-view",
+    "mcu-debug.peripheral-viewer",
+    "mcu-debug.rtos-views",
+    "trond-snekvik.gnu-mapfiles",
+    "zixuanwang.linkerscript",
+    "gurumukhi.selected-lines-count",
+    "gruntfuggly.todo-tree",
+    "vscode-icons-team.vscode-icons",
+    "jeff-hykin.better-cpp-syntax",
+    "dan-c-underwood.arm"
+  ]
+}

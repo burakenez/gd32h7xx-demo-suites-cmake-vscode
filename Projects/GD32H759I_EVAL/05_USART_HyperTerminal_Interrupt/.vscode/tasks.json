@@ -1,0 +1,121 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build and Flash",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "Build",
+                "Flash MCU",
+            ],
+            "dependsOrder": "sequence"
+        },
+        {
+            "label": "Flash MCU",
+            "type": "shell",
+            "command": "'${workspaceFolder}/../../../Tools/xpack-openocd-0.11.0-3/bin/openocd.exe' -s '${workspaceFolder}' -f '${workspaceFolder}/../../../Tools/xpack-openocd-0.11.0-3/scripts/target/${OPENOCD_TARGET_SCRIPT_FILE}' -c 'init; reset halt; flash write_image erase ${command:cmake.launchTargetFilename}; reset; exit'",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${command:cmake.buildDirectory}/Application",
+                "environment": {
+                    "CLICOLOR_FORCE": "1"
+                }
+            },
+            "presentation": {
+                "clear": true
+            }
+        },
+        {
+            "label": "Reset MCU",
+            "type": "shell",
+            "command": "'${workspaceFolder}/../../../Tools/xpack-openocd-0.11.0-3/bin/openocd.exe' -s '${workspaceFolder}' -f '${workspaceFolder}/../../../Tools/xpack-openocd-0.11.0-3/scripts/target/${OPENOCD_TARGET_SCRIPT_FILE}' -c 'init; reset; exit'",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${command:cmake.buildDirectory}/Application",
+                "environment": {
+                    "CLICOLOR_FORCE": "1"
+                }
+            },
+            "presentation": {
+                "clear": true
+            }
+        },
+        {
+            "label": "Mass Erase MCU",
+            "type": "shell",
+            "command": "'${workspaceFolder}/../../../Tools/xpack-openocd-0.11.0-3/bin/openocd.exe' -s '${workspaceFolder}' -f '${workspaceFolder}/../../../Tools/xpack-openocd-0.11.0-3/scripts/target/${OPENOCD_TARGET_SCRIPT_FILE}' -c 'init; reset halt; ${OPENOCD_TARGET_SCRIPT_MCU_NAME} mass_erase 0; exit'",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${command:cmake.buildDirectory}/Application",
+                "environment": {
+                    "CLICOLOR_FORCE": "1"
+                }
+            },
+            "presentation": {
+                "clear": true
+            }
+        },
+        {
+            "label": "OpenOCD Server",
+            "type": "shell",
+            "command": [
+                "'${workspaceFolder}/../../../Tools/xpack-openocd-0.11.0-3/bin/openocd.exe' -s '${workspaceFolder}' -f '${workspaceFolder}/../../../Tools/xpack-openocd-0.11.0-3/scripts/target/${OPENOCD_TARGET_SCRIPT_FILE}'"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${command:cmake.buildDirectory}/Application",
+                "environment": {
+                    "CLICOLOR_FORCE": "1"
+                }
+            },
+            "presentation": {
+                "clear": true
+            }
+        },
+        {
+            "label": "Build",
+            "type": "cmake",
+            "command": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                {
+                    "base": "$gcc",
+                    "fileLocation": [
+                        "relative",
+                        "${command:cmake.buildDirectory}"
+                    ]
+                },
+            ],
+            "options": {
+                "environment": {
+                    "CLICOLOR_FORCE": "1"
+                }
+            },
+            "presentation": {
+                "clear": true
+            }
+        }
+    ]
+}
