@@ -2,7 +2,7 @@
     \file    bsp_i2c_touch.c
     \brief   bsp_i2c_touch driver
 
-    \version 2024-09-25, V1.0.0, demo for GD32H7xx
+    \version 2025-02-19, V2.1.0, demo for GD32H7xx
 */
 
 /*
@@ -351,7 +351,7 @@ ErrStatus gt911_writereg(uint16_t addr, uint8_t *buffer, uint8_t length)
 static void i2c_delay(void)
 {
     __IO uint32_t i;
-    for(i = 0; i < 5 * 10; i++);
+    for(i = 0; i < 5 * 100; i++);
 }
 
 /*!

@@ -7,7 +7,7 @@ set(TARGET_SRC
     Core/Src/gd32h7xx_it.c
     Core/Src/main.c
     Core/Src/systick.c
-    Core/Src/system_gd32h7xx.c	
+    Core/Src/system_gd32h7xx.c
 	
     # Soft_Drive
     Soft_Drive/gd25x512me.c

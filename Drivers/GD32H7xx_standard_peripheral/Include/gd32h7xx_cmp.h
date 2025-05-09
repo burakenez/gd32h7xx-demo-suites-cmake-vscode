@@ -2,11 +2,11 @@
     \file    gd32h7xx_cmp.h
     \brief   definitions for the CMP
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 */
 
 /*
-    Copyright (c) 2024, GigaDevice Semiconductor Inc.
+    Copyright (c) 2025, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -59,7 +59,7 @@ OF SUCH DAMAGE.
 #define CMP_IFC_CMP1IC                           BIT(17)                        /*!< CMP1 interrupt flag clear */
 
 /* CMP_SR */
-#define CMP_SR_AFSE_PA6                          BITS(0,10)                     /*!< CMP selects alternate output ports PA6 alternate function select for CMPx_OUT */
+#define CMP_SR_AFSE_PA6                          BIT(0)                         /*!< PA6 alternate function select for CMPx_OUT */
 #define CMP_SR_AFSE_PA8                          BIT(1)                         /*!< PA8 alternate function select for CMPx_OUT */
 #define CMP_SR_AFSE_PB12                         BIT(2)                         /*!< PB12 alternate function select for CMPx_OUT */
 #define CMP_SR_AFSE_PE6                          BIT(3)                         /*!< PE6 alternate function select for CMPx_OUT */
@@ -134,7 +134,7 @@ typedef enum{
 #define CMP_BLANKING_TIMER1_OC2                   CS_CMPXBLK(2)                 /*!< CMP TIMER1_CH2 output compare signal selected as blanking source */
 #define CMP_BLANKING_TIMER2_OC2                   CS_CMPXBLK(3)                 /*!< CMP TIMER2_CH2 output compare signal selected as blanking source */
 #define CMP_BLANKING_TIMER2_OC3                   CS_CMPXBLK(4)                 /*!< CMP TIMER2_CH3 output compare signal selected as blanking source */
-#define CMP_BLANKING_TIMER7_OC4                   CS_CMPXBLK(5)                 /*!< CMP TIMER7_CH0 output compare signal selected as blanking source */
+#define CMP_BLANKING_TIMER7_OC0                   CS_CMPXBLK(5)                 /*!< CMP TIMER7_CH0 output compare signal selected as blanking source */
 #define CMP_BLANKING_TIMER14_OC0                  CS_CMPXBLK(6)                 /*!< CMP TIMER14_CH0 output compare signal selected as blanking source */
 
 /* comparator output level */
@@ -142,18 +142,17 @@ typedef enum{
 #define CMP_OUTPUTLEVEL_LOW                      ((uint32_t)0x00000000U)        /*!< comparator output low */
 
 /* CMP alternate output ports */
-#define SR_AFSE(regval)                          (BITS(0,10) & ((uint32_t)(regval) << 0U))
-#define CMP_AFSE_GPIO_PA6                        SR_AFSE(0)                     /*!< CMP alternate GPIO PA6 */
-#define CMP_AFSE_GPIO_PA8                        SR_AFSE(1)                     /*!< CMP alternate GPIO PA8 */
-#define CMP_AFSE_GPIO_PB12                       SR_AFSE(2)                     /*!< CMP alternate GPIO PB12 */
-#define CMP_AFSE_GPIO_PE6                        SR_AFSE(3)                     /*!< CMP alternate GPIO PE6 */
-#define CMP_AFSE_GPIO_PE15                       SR_AFSE(4)                     /*!< CMP alternate GPIO PE15 */
-#define CMP_AFSE_GPIO_PG2                        SR_AFSE(5)                     /*!< CMP alternate GPIO PG2 */
-#define CMP_AFSE_GPIO_PG3                        SR_AFSE(6)                     /*!< CMP alternate GPIO PG3 */
-#define CMP_AFSE_GPIO_PG4                        SR_AFSE(7)                     /*!< CMP alternate GPIO PG4 */
-#define CMP_AFSE_GPIO_PK0                        SR_AFSE(8)                     /*!< CMP alternate GPIO PK0 */
-#define CMP_AFSE_GPIO_PK1                        SR_AFSE(9)                     /*!< CMP alternate GPIO PK1*/
-#define CMP_AFSE_GPIO_PK2                        SR_AFSE(10)                    /*!< CMP alternate GPIO PK2 */
+#define CMP_AFSE_GPIO_PA6                        CMP_SR_AFSE_PA6                /*!< CMP alternate GPIO PA6 */
+#define CMP_AFSE_GPIO_PA8                        CMP_SR_AFSE_PA8                /*!< CMP alternate GPIO PA8 */
+#define CMP_AFSE_GPIO_PB12                       CMP_SR_AFSE_PB12               /*!< CMP alternate GPIO PB12 */
+#define CMP_AFSE_GPIO_PE6                        CMP_SR_AFSE_PE6                /*!< CMP alternate GPIO PE6 */
+#define CMP_AFSE_GPIO_PE15                       CMP_SR_AFSE_PE15               /*!< CMP alternate GPIO PE15 */
+#define CMP_AFSE_GPIO_PG2                        CMP_SR_AFSE_PG2                /*!< CMP alternate GPIO PG2 */
+#define CMP_AFSE_GPIO_PG3                        CMP_SR_AFSE_PG3                /*!< CMP alternate GPIO PG3 */
+#define CMP_AFSE_GPIO_PG4                        CMP_SR_AFSE_PG4                /*!< CMP alternate GPIO PG4 */
+#define CMP_AFSE_GPIO_PK0                        CMP_SR_AFSE_PK0                /*!< CMP alternate GPIO PK0 */
+#define CMP_AFSE_GPIO_PK1                        CMP_SR_AFSE_PK1                /*!< CMP alternate GPIO PK1*/
+#define CMP_AFSE_GPIO_PK2                        CMP_SR_AFSE_PK2                /*!< CMP alternate GPIO PK2 */
 
 /* CMP flag definitions */
 #define CMP_FLAG_COMPARE                         CMP_STAT_CMP0IF                /*!< CMP compare flag */

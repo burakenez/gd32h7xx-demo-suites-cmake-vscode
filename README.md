@@ -1,8 +1,8 @@
-[![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/burakenez/gd32h7xx-demo-suites-cmake)](https://github.com/burakenez/gd32h7xx-demo-suites-cmake/tags/)
+[![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/burakenez/gd32h7xx-demo-suites-cmake-vscode)](https://github.com/burakenez/gd32h7xx-demo-suites-cmake-vscode/tags/)
 
-# GD32H7xx Demo Suites CMake Integration
+# GD32H7xx Demo Suites CMake Visual Studio Code Integration
 
-🚀 Welcome to the **GD32H7xx Demo Suites** CMake repository! This project is designed to integrate the CMake build system with Visual Studio Code, providing a streamlined development environment for **_GD32H7xx Demo Suites V2.0.1_**.
+🚀 Welcome to the **GD32H7xx Demo Suites CMake Visual Studio Code** repository! This project is designed to integrate the CMake build system with Visual Studio Code, providing a streamlined development environment for **_GD32H7xx Demo Suites V2.1.0_**.
 
 ## ✨ Features
 - **📦 Comprehensive Integration:** Pre-configured CMake and VS Code settings for seamless builds and debugging.
@@ -61,33 +61,33 @@
 ## Versions of Drivers and Middlewares
 
 ### 1. **CMSIS**
-- **Version:** _V6.1_
+- **Version:** `V6.1`
 - **Path:** `Drivers/CMSIS`
 
 ### 2. **CMSIS/GD/GD32H7xx**
-- **Version:** _V2.0.0 (2024-07-31)_
+- **Version:** `V1.4.0 (2025-01-24)`
 - **Path:** `Drivers/CMSIS/GD/GD32H7xx`
-- Extracted from **GD32H7xx Demo Suites** **_V2.0.1_**.
+- Extracted from `GD32H7xx Demo Suites V2.1.0`
 
 ### 3. **GD32H7xx_standard_peripheral**
-- **Version:** _V2.0.0 (2024-07-31)_**.
-- **Path:** 'Drivers/GD32H7xx_standard_peripheral'
+- **Version:** `V1.4.0 (2025-01-24)`
+- **Path:** `Drivers/GD32H7xx_standard_peripheral`
 
 ### 4. **GD32H7xx_usbhs_library**
-- **Version:** _V2.0.0 (2024-07-31)_**.
-- **Path:** 'Drivers/GD32H7xx_usbhs_library'
+- **Version:** `V1.4.0 (2025-01-24)`
+- **Path:** `Drivers/GD32H7xx_usbhs_library`
 
 ### 5. **FatFs**
-- **Version:** _R0.15a (November 22, 2024)_**.
-- **Path:** 'Middlewares/FatFs'
+- **Version:** `R0.15a (November 22, 2024)`
+- **Path:** `Middlewares/FatFs`
 
 ### 6. **FreeRTOS**
-- **Version:** _V10.3.1 (February, 18 2020)_**.
-- **Path:** 'Middlewares/FreeRTOS'
+- **Version:** `V10.3.1 (February, 18 2020)`
+- **Path:** `Middlewares/FreeRTOS`
 
 ### 7. **lwip**
-- **Version:** _STABLE-2.1.2 (2018-11-21)_**.
-- **Path:** 'Middlewares/lwip'
+- **Version:** `STABLE-2.1.2 (2018-11-21)`
+- **Path:** `Middlewares/lwip`
 
 ---
 
@@ -105,7 +105,7 @@
 ```bash
 cd C:/gd32-cmake
 # Clone the repository recursively to include submodules
-git clone --recursive https://github.com/burakenez/gd32h7xx-demo-suites-cmake.git
+git clone --recursive https://github.com/burakenez/gd32h7xx-demo-suites-cmake-vscode.git
 ```
 - ⚠️ Avoid long directory paths to prevent build issues.
 - If downloading as a ZIP, manually include submodules in the `Tools` folder:

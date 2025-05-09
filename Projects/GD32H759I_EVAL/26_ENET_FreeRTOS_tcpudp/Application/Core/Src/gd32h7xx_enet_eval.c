@@ -2,7 +2,7 @@
     \file    gd32h7xx_enet_eval.c
     \brief   ethernet hardware configuration
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-02-19, V2.1.0, demo for GD32H7xx
 */
 
 /*

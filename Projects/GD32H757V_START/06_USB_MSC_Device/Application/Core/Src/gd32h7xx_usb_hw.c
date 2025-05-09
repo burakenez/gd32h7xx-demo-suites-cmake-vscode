@@ -2,7 +2,7 @@
     \file    gd32h7xx_usb_hw.c
     \brief   USB hardware configuration for GD32H7xx
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-02-19, V2.1.0, demo for GD32H7xx
 */
 
 /*
@@ -95,7 +95,7 @@ void usb_intr_config(void)
 {
     nvic_priority_group_set(NVIC_PRIGROUP_PRE2_SUB2);
 
-    nvic_irq_enable((uint8_t)USBHS0_IRQn, 3U, 0U);
+    nvic_irq_enable(USBHS0_IRQn, 3U, 0U);
 
     /* enable the power module clock */
     rcu_periph_clock_enable(RCU_PMU);
@@ -105,7 +105,7 @@ void usb_intr_config(void)
     exti_init(EXTI_31, EXTI_INTERRUPT, EXTI_TRIG_RISING);
     exti_interrupt_enable(EXTI_31);
 
-    nvic_irq_enable((uint8_t)USBHS0_WKUP_IRQn, 1U, 0U);
+    nvic_irq_enable(USBHS0_WKUP_IRQn, 1U, 0U);
 
 #ifdef USB_DEDICATED_EP1_ENABLED
     nvic_irq_enable((uint8_t)USBHS0_EP1_OUT_IRQn, 1U, 0U);
@@ -125,7 +125,7 @@ void usb_timer_init(void)
     nvic_priority_group_set(NVIC_PRIGROUP_PRE2_SUB2);
 
     /* enable the TIM2 global interrupt */
-    nvic_irq_enable((uint8_t)TIMER2_IRQn, 1U, 0U);
+    nvic_irq_enable(TIMER2_IRQn, 1U, 0U);
 
     rcu_periph_clock_enable(RCU_TIMER2);
 }

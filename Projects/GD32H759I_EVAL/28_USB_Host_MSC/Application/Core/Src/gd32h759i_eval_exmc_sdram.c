@@ -2,7 +2,7 @@
     \file    gd32h7xxi_eval_exmc_sdram.c
     \brief   exmc write or read sdram functions
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-02-19, V2.1.0, demo for GD32H7xx
 */
 
 /*

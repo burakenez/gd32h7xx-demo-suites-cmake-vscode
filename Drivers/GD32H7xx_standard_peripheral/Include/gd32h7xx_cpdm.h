@@ -2,11 +2,11 @@
     \file    gd32h7xx_cpdm.h
     \brief   definitions for the CPDM
     
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 */
 
 /*
-    Copyright (c) 2024, GigaDevice Semiconductor Inc.
+    Copyright (c) 2025, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -92,6 +92,8 @@ void cpdm_delayline_sample_disable(uint32_t cpdm_periph);
 /* output clock configuration functions */
 /* select CPDM output clock phase */
 void cpdm_output_clock_phase_select(uint32_t cpdm_periph, cpdm_output_phase_enum output_clock_phase);
+/* configure CPDM delay step */
+void cpdm_delay_step_config(uint32_t cpdm_periph, uint8_t delay_step);
 /* get delay line length valid flag */
 FlagStatus cpdm_delayline_length_valid_flag_get(uint32_t cpdm_periph);
 /* get delay line length */
@@ -99,6 +101,6 @@ uint16_t cpdm_delayline_length_get(uint32_t cpdm_periph);
 
 /* clock output function */
 /* configure CPDM clock output */
-void cpdm_clock_output(uint32_t cpdm_periph, cpdm_output_phase_enum output_clock_phase);
+ErrStatus cpdm_clock_output(uint32_t cpdm_periph, cpdm_output_phase_enum output_clock_phase);
 
 #endif /* GD32H7XX_CPDM_H */

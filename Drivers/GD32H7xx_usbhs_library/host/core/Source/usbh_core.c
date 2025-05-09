@@ -2,11 +2,11 @@
     \file    usbh_core.c
     \brief   USB host core state machine driver
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 */
 
 /*
-    Copyright (c) 2024, GigaDevice Semiconductor Inc.
+    Copyright (c) 2025, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -364,7 +364,9 @@ void usbh_core_task(usbh_host *uhost)
         /* deinitialize host for new enumeration */
         usbh_deinit(uhost);
         uhost->usr_cb->dev_deinit();
-        uhost->active_class->class_deinit(uhost);
+        if(NULL != uhost->active_class) {
+            uhost->active_class->class_deinit(uhost);
+        };
         break;
 
     case HOST_DEV_DETACHED:
@@ -374,7 +376,9 @@ void usbh_core_task(usbh_host *uhost)
         /* re-initialize host for new enumeration */
         usbh_deinit(uhost);
         uhost->usr_cb->dev_deinit();
-        uhost->active_class->class_deinit(uhost);
+        if(NULL != uhost->active_class) {
+            uhost->active_class->class_deinit(uhost);
+        };
         usbh_pipe_delete(udev);
         uhost->cur_state = HOST_DEFAULT;
         break;

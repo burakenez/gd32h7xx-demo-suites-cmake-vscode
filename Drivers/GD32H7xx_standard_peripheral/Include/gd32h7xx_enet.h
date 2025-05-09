@@ -2,11 +2,11 @@
     \file    gd32h7xx_enet.h
     \brief   definitions for the ENET
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 */
 
 /*
-    Copyright (c) 2024, GigaDevice Semiconductor Inc.
+    Copyright (c) 2025, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -995,7 +995,7 @@ typedef struct {
 #define ENET_MDC_HCLK_DIV102                      MAC_PHY_CTL_CLR(4)                            /*!< HCLK:150-180 MHz; MDC clock= HCLK/102 */
 #define ENET_MDC_HCLK_DIV124                      MAC_PHY_CTL_CLR(5)                            /*!< HCLK:250-300 MHz; MDC clock= HCLK/124 */
 #define ENET_MDC_HCLK_DIV142                      MAC_PHY_CTL_CLR(6)                            /*!< HCLK:300-350 MHz; MDC clock= HCLK/142 */
-#define ENET_MDC_HCLK_DIV162                      MAC_PHY_CTL_CLR(7)
+#define ENET_MDC_HCLK_DIV162                      MAC_PHY_CTL_CLR(7)                            /*!< HCLK:350-400 MHz; MDC clock= HCLK/162 */
 
 #define MAC_PHY_CTL_PR(regval)                    (BITS(6,10) & ((uint32_t)(regval) << 6U))     /*!< write value to ENET_MAC_PHY_CTL_PR bit field */
 

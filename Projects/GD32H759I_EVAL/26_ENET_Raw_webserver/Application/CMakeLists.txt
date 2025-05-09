@@ -12,7 +12,7 @@ set(TARGET_SRC
     Core/Src/httpd.c
     Core/Src/main.c
     Core/Src/netconf.c
-    Core/Src/system_gd32h7xx.c	
+    Core/Src/system_gd32h7xx.c
 	
     # lwip/port/GD32H7xx/Basic
     lwip/port/GD32H7xx/Basic/ethernetif.c

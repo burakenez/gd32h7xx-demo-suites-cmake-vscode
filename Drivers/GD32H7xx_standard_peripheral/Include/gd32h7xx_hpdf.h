@@ -2,11 +2,11 @@
     \file    gd32h7xx_hpdf.h
     \brief   definitions for the HPDF
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 */
 
 /*
-    Copyright (c) 2024, GigaDevice Semiconductor Inc.
+    Copyright (c) 2025, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -538,7 +538,7 @@ typedef enum {
 #define TMCHEN_CHANNEL7                 TMCHEN(0x80)                                    /*!< threshold monitor is enabled on channel 7 */
 
 /* threshold monitor high threshold event break signal definitions */
-#define HTBSD(regval)                   (BITS(0,1) & ((uint32_t)(regval)<< 1))          /*!< select high threshold event break signal */
+#define HTBSD(regval)                   (BITS(0,3) & ((uint32_t)(regval)<< 0))          /*!< select high threshold event break signal */
 #define NO_TM_HT_BREAK                  HTBSD(0)                                        /*!< break signal is not distributed to an threshold monitor high threshold event */
 #define TM_HT_BREAK0                    HTBSD(1)                                        /*!< break signal 0 is distributed to an threshold monitor high threshold event */
 #define TM_HT_BREAK1                    HTBSD(2)                                        /*!< break signal 1 is distributed to an threshold monitor high threshold event */
@@ -546,7 +546,7 @@ typedef enum {
 #define TM_HT_BREAK3                    HTBSD(8)                                        /*!< break signal 3 is distributed to an threshold monitor high threshold event */
 
 /* threshold monitor low threshold event break signal definitions */
-#define LTBSD(regval)                   (BITS(0,1) & ((uint32_t)(regval)<< 1))          /*!< select low threshold event break signal */
+#define LTBSD(regval)                   (BITS(0,3) & ((uint32_t)(regval)<< 0))          /*!< select low threshold event break signal */
 #define NO_TM_LT_BREAK                  LTBSD(0)                                        /*!< break signal is not distributed to an threshold monitor low threshold event */
 #define TM_LT_BREAK0                    LTBSD(1)                                        /*!< break signal 0 is distributed to an threshold monitor low threshold event */
 #define TM_LT_BREAK1                    LTBSD(2)                                        /*!< break signal 1 is distributed to an threshold monitor low threshold event */

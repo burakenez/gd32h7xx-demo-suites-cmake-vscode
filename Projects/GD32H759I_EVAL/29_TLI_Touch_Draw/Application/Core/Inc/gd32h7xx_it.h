@@ -2,7 +2,7 @@
     \file    gd32h7xx_it.h
     \brief   the header file of the ISR
 
-    \version 2023-3-31, V1.0.0, demo for GD32H7xx
+    \version 2025-02-19, V2.1.0, demo for GD32H7xx
 */
 
 /*

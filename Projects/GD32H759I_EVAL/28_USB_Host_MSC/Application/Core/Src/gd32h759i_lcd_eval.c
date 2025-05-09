@@ -2,7 +2,7 @@
     \file    gd32h7xxi_lcd_eval.c
     \brief   gd32h7xxi lcd driver
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-02-19, V2.1.0, demo for GD32H7xx
 */
 
 /*

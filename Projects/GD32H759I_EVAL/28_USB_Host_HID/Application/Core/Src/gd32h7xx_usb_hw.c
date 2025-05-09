@@ -2,7 +2,7 @@
     \file    gd32h7xx_usb_hw.c
     \brief   USB hardware configuration for GD32H7xx
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-02-19, V2.1.0, demo for GD32H7xx
 */
 
 /*
@@ -143,11 +143,11 @@ void usb_intr_config(void)
     nvic_priority_group_set(NVIC_PRIGROUP_PRE2_SUB2);
 
 #ifdef USE_USBHS0
-    nvic_irq_enable((uint8_t)USBHS0_IRQn, 3U, 0U);
+    nvic_irq_enable(USBHS0_IRQn, 3U, 0U);
 #endif /* USE_USBHS0 */
 
 #ifdef USE_USBHS1
-    nvic_irq_enable((uint8_t)USBHS1_IRQn, 3U, 0U);
+    nvic_irq_enable(USBHS1_IRQn, 3U, 0U);
 #endif /* USE_USBHS0 */
 
     /* enable the power module clock */
@@ -159,7 +159,7 @@ void usb_intr_config(void)
     exti_init(EXTI_31, EXTI_INTERRUPT, EXTI_TRIG_RISING);
     exti_interrupt_enable(EXTI_31);
 
-    nvic_irq_enable((uint8_t)USBHS0_WKUP_IRQn, 1U, 0U);
+    nvic_irq_enable(USBHS0_WKUP_IRQn, 1U, 0U);
 #endif /* USE_USBHS0 */
 
 #ifdef USE_USBHS1
@@ -168,7 +168,7 @@ void usb_intr_config(void)
     exti_init(EXTI_32, EXTI_INTERRUPT, EXTI_TRIG_RISING);
     exti_interrupt_enable(EXTI_32);
 
-    nvic_irq_enable((uint8_t)USBHS1_WKUP_IRQn, 1U, 0U);
+    nvic_irq_enable(USBHS1_WKUP_IRQn, 1U, 0U);
 #endif /* USE_USBHS1 */
 }
 
@@ -224,7 +224,7 @@ void usb_timer_init(void)
     nvic_priority_group_set(NVIC_PRIGROUP_PRE2_SUB2);
 
     /* enable the TIM2 global interrupt */
-    nvic_irq_enable((uint8_t)TIMER2_IRQn, 1U, 0U);
+    nvic_irq_enable(TIMER2_IRQn, 1U, 0U);
 
     rcu_periph_clock_enable(RCU_TIMER2);
 }

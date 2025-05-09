@@ -2,7 +2,7 @@
     \file    main.c
     \brief   DCI display demo
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-02-19, V2.1.0, demo for GD32H7xx
 */
 
 /*
@@ -74,7 +74,7 @@ int main(void)
     dci_ov2640_id_read(&ov2640id);
 
     /* DMA interrupt and channel enable */
-    dma_interrupt_enable(DMA1, DMA_CH7, DMA_CHXCTL_FTFIE);
+    dma_interrupt_enable(DMA1, DMA_CH7, DMA_INT_FTF);
     dma_channel_enable(DMA1, DMA_CH7);
     /* DCI enable */
     dci_enable();

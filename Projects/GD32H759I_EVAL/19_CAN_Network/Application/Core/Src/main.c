@@ -2,7 +2,7 @@
     \file    main.c
     \brief   CAN network demo
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-02-19, V2.1.0, demo for GD32H7xx
 */
 
 /*
@@ -127,8 +127,8 @@ int main(void)
 void can_gpio_config(void)
 {
     /* configure CAN1 and CAN2 clock source */
-    rcu_can_clock_config(IDX_CAN1, RCU_CANSRC_APB2_DIV2);
-    rcu_can_clock_config(IDX_CAN2, RCU_CANSRC_APB2_DIV2);
+    rcu_can_clock_config(IDX_CAN1, RCU_CANSRC_APB2);
+    rcu_can_clock_config(IDX_CAN2, RCU_CANSRC_APB2);
     /* enable CAN clock */
     rcu_periph_clock_enable(RCU_CAN1);
     rcu_periph_clock_enable(RCU_CAN2);
@@ -210,7 +210,7 @@ void can_config(void)
     can_parameter.prop_time_segment = 2U;
     can_parameter.time_segment_1 = 5U;
     can_parameter.time_segment_2 = 2U;
-    can_parameter.prescaler = 15U;
+    can_parameter.prescaler = 30U;
 
     /* initialize CAN */
     can_init(CAN1, &can_parameter);

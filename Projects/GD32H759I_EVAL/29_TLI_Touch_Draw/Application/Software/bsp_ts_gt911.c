@@ -2,7 +2,7 @@
     \file    gd32h7xx_it.c
     \brief   interrupt service routines
 
-    \version 2024-09-25, V0.1.0, demo for GD32H7xx
+    \version 2025-02-19, V2.1.0, demo for GD32H7xx
 */
 
 /*

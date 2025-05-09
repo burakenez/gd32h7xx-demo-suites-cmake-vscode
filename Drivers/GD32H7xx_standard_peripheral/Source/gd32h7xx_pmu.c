@@ -2,11 +2,11 @@
     \file    gd32h7xx_pmu.c
     \brief   PMU driver
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 */
 
 /*
-    Copyright (c) 2024, GigaDevice Semiconductor Inc.
+    Copyright (c) 2025, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -315,12 +315,6 @@ void pmu_usb_voltage_detector_disable(void)
                 only one parameter can be selected which is shown as below:
       \arg        PMU_LDO_SUPPLY: V0.9V domains are suppplied from the LDO
       \arg        PMU_DIRECT_SMPS_SUPPLY: V0.9V domains are suppplied from the SMPS only
-      \arg        PMU_SMPS_1V8_SUPPLIES_LDO: the SMPS 1.8V output supplies the LDO which supplies the V0.9V domains
-      \arg        PMU_SMPS_2V5_SUPPLIES_LDO: the SMPS 2.5V output supplies the LDO which supplies the V0.9V domains
-      \arg        PMU_SMPS_1V8_SUPPLIES_EXT_AND_LDO: the SMPS 1.8V output supplies an external circuits and the LDO. The V0.9V domains are suppplied from the LDO
-      \arg        PMU_SMPS_2V5_SUPPLIES_EXT_AND_LDO: the SMPS 2.5V output supplies an external circuits and the LDO. The V0.9V domains are suppplied from the LDO
-      \arg        PMU_SMPS_1V8_SUPPLIES_EXT: the SMPS 1.8V output supplies an external source which supplies the V0.9V domains
-      \arg        PMU_SMPS_2V5_SUPPLIES_EXT: the SMPS 2.5V output supplies an external source which supplies the V0.9V domains
       \arg        PMU_BYPASS: the SMPS disabled and the LDO Bypass. The V0.9V domains are supplied from an external source
     \param[out] none
     \retval     none
@@ -329,20 +323,11 @@ void pmu_smps_ldo_supply_config(uint32_t smpsmode)
 {
     uint32_t temp;
     temp = PMU_CTL2;
-    temp &= ~(PMU_CTL2_DVSVC | PMU_CTL2_DVSCFG | PMU_CTL2_DVSEN | PMU_CTL2_LDOEN | PMU_CTL2_BYPASS);
+    temp &= ~(PMU_CTL2_DVSEN | PMU_CTL2_LDOEN | PMU_CTL2_BYPASS);
     temp |= smpsmode;
     PMU_CTL2 = temp;
 
     while(0U == (PMU_CTL3 & PMU_CTL3_VOVRF)) {
-    }
-
-    /* When the SMPS supplies external circuits verify that DVSRF flag is set */
-    if((smpsmode == PMU_SMPS_1V8_SUPPLIES_EXT_AND_LDO) ||
-            (smpsmode == PMU_SMPS_2V5_SUPPLIES_EXT_AND_LDO)   ||
-            (smpsmode == PMU_SMPS_1V8_SUPPLIES_EXT)           ||
-            (smpsmode == PMU_SMPS_2V5_SUPPLIES_EXT)) {
-        while(0U == (PMU_CTL2 & PMU_CTL2_DVSRF)) {
-        }
     }
 }
 

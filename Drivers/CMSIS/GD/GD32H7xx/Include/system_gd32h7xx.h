@@ -6,7 +6,7 @@
 
 /*
  * Copyright (c) 2009-2021 Arm Limited. All rights reserved.
- * Copyright (c) 2024, GigaDevice Semiconductor Inc.
+ * Copyright (c) 2025, GigaDevice Semiconductor Inc.
  *
  * SPDX-License-Identifier: Apache-2.0
  *

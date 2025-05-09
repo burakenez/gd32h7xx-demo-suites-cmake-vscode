@@ -2,11 +2,11 @@
     \file    gd32h7xx_misc.c
     \brief   MISC driver
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 */
 
 /*
-    Copyright (c) 2024, GigaDevice Semiconductor Inc.
+    Copyright (c) 2025, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -59,7 +59,7 @@ void nvic_priority_group_set(uint32_t nvic_prigroup)
     \param[out] none
     \retval     none
 */
-void nvic_irq_enable(uint8_t nvic_irq,
+void nvic_irq_enable(IRQn_Type nvic_irq,
                      uint8_t nvic_irq_pre_priority,
                      uint8_t nvic_irq_sub_priority)
 {
@@ -98,10 +98,10 @@ void nvic_irq_enable(uint8_t nvic_irq,
     temp_priority = (uint32_t)nvic_irq_pre_priority << (0x4U - temp_pre);
     temp_priority |= nvic_irq_sub_priority & (0x0FU >> (0x4U - temp_sub));
     temp_priority = temp_priority << 0x04U;
-    NVIC->IPR[nvic_irq] = (uint8_t)temp_priority; // IP is changed with IPR because of using CMSIS6
+    NVIC->IPR[(uint8_t)nvic_irq] = (uint8_t)temp_priority;
 
     /* enable the selected IRQ */
-    NVIC->ISER[nvic_irq >> 0x05U] = (uint32_t)0x01U << (nvic_irq & (uint8_t)0x1FU);
+    NVIC->ISER[(uint8_t)nvic_irq >> 0x05U] = (uint32_t)0x01U << ((uint8_t)nvic_irq & (uint8_t)0x1FU);
 }
 
 /*!
@@ -110,26 +110,26 @@ void nvic_irq_enable(uint8_t nvic_irq,
     \param[out] none
     \retval     none
 */
-void nvic_irq_disable(uint8_t nvic_irq)
+void nvic_irq_disable(IRQn_Type nvic_irq)
 {
     /* disable the selected IRQ.*/
-    NVIC->ICER[nvic_irq >> 0x05U] = (uint32_t)0x01U << (nvic_irq & (uint8_t)0x1FU);
+    NVIC->ICER[(uint8_t)nvic_irq >> 0x05U] = (uint32_t)0x01U << ((uint8_t)nvic_irq & (uint8_t)0x1FU);
     __DSB();
     __ISB();
 }
 
 /*!
     \brief      set the NVIC vector table base address
-    \param[in]  nvic_vict_tab: the RAM or FLASH base address
+    \param[in]  nvic_vect_tab: the RAM or FLASH base address
       \arg        NVIC_VECTTAB_RAM: RAM base address
       \arg        NVIC_VECTTAB_FLASH: Flash base address
     \param[in]  offset: vector table offset
     \param[out] none
     \retval     none
 */
-void nvic_vector_table_set(uint32_t nvic_vict_tab, uint32_t offset)
+void nvic_vector_table_set(uint32_t nvic_vect_tab, uint32_t offset)
 {
-    SCB->VTOR = nvic_vict_tab | (offset & NVIC_VECTTAB_OFFSET_MASK);
+    SCB->VTOR = nvic_vect_tab | (offset & NVIC_VECTTAB_OFFSET_MASK);
     __DSB();
 }
 
@@ -170,7 +170,6 @@ void system_lowpower_reset(uint8_t lowpower_mode)
     \param[in]  systick_clksource: the systick clock source needed to choose
       \arg        SYSTICK_CLKSOURCE_CKSYS: systick clock source is from CK_SYS
       \arg        SYSTICK_CLKSOURCE_CKSYS_DIV8: systick clock source is from CK_SYS/8
-      
     \param[out] none
     \retval     none
 */

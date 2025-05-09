@@ -9,7 +9,7 @@ set(TARGET_SRC
     Core/Src/gd32h7xx_it.c
     Core/Src/gd32h7xx_usb_hw.c
     Core/Src/usbd_storage_msd.c
-    Core/Src/system_gd32h7xx.c	
+    Core/Src/system_gd32h7xx.c
 	
     # Startup
     Startup/startup_gd32h7xx.s

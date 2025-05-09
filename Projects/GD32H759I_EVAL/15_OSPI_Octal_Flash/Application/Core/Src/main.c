@@ -2,7 +2,7 @@
     \file    main.c
     \brief   running LED
 
-    \version 2023-3-31, V1.0.0, OSPI 1&8 lines indirect/memory mapped read and write
+    \version 2025-02-19, V2.1.0, OSPI 1&8 lines indirect/memory mapped read and write
 */
 
 /*

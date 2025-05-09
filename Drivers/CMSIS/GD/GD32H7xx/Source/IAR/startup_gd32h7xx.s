@@ -2,12 +2,12 @@
 ;    \file    startup_gd32h7xx.s
 ;    \brief   start up file
 
-;    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+;    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 ;*/
 
 ;/*
 ; * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
-; * Copyright (c) 2024, GigaDevice Semiconductor Inc.
+; * Copyright (c) 2025, GigaDevice Semiconductor Inc.
 ; *
 ; * SPDX-License-Identifier: Apache-2.0
 ; *
@@ -118,8 +118,8 @@ __vector_table
                 DCD     DMA1_Channel2_IRQHandler                     ; 74:DMA1 Channel2
                 DCD     DMA1_Channel3_IRQHandler                     ; 75:DMA1 Channel3
                 DCD     DMA1_Channel4_IRQHandler                     ; 76:DMA1 Channel4
-                DCD     ENET0_IRQHandler                             ; 77:Ethernet0
-                DCD     ENET0_WKUP_IRQHandler                        ; 78:Ethernet0 Wakeup through EXTI Line
+                DCD     ENET0_IRQHandler                             ; 77:ENET0
+                DCD     ENET0_WKUP_IRQHandler                        ; 78:ENET0 Wakeup through EXTI Line
                 DCD     0                                            ; Reserved
                 DCD     0                                            ; Reserved
                 DCD     0                                            ; Reserved
@@ -233,8 +233,8 @@ __vector_table
                 DCD     USBHS1_EP1_IN_IRQHandler                     ; 189:USBHS1 endpoint 1 in
                 DCD     USBHS1_WKUP_IRQHandler                       ; 190:USBHS1 wakeup
                 DCD     USBHS1_IRQHandler                            ; 191:USBHS1
-                DCD     ENET1_IRQHandler                             ; 192:Ethernet1
-                DCD     ENET1_WKUP_IRQHandler                        ; 193:Ethernet1 wakeup
+                DCD     ENET1_IRQHandler                             ; 192:ENET1
+                DCD     ENET1_WKUP_IRQHandler                        ; 193:ENET1 wakeup
                 DCD     0                                            ; Reserved
                 DCD     CAN0_WKUP_IRQHandler                         ; 195:CAN0 wakeup
                 DCD     CAN0_Message_IRQHandler                      ; 196:CAN0 interrupt for message buffer

@@ -2,7 +2,7 @@
     \file    gd32h759i_eval.c
     \brief   firmware functions to manage leds, keys, COM ports
     
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-02-19, V2.1.0, demo for GD32H7xx
 */
 
 /*
@@ -59,7 +59,7 @@ static const uint8_t KEY_PORT_SOURCE[KEYn]      = {WAKEUP_KEY_EXTI_PORT_SOURCE, 
 
 static const uint8_t KEY_PIN_SOURCE[KEYn]       = {WAKEUP_KEY_EXTI_PIN_SOURCE, TAMPER_KEY_EXTI_PIN_SOURCE, USER_KEY_EXTI_PIN_SOURCE};
 
-static const uint8_t KEY_IRQn[KEYn]             = {WAKEUP_KEY_EXTI_IRQn, TAMPER_KEY_EXTI_IRQn, USER_KEY_EXTI_IRQn};
+static const IRQn_Type KEY_IRQn[KEYn]           = {WAKEUP_KEY_EXTI_IRQn, TAMPER_KEY_EXTI_IRQn, USER_KEY_EXTI_IRQn};
 
 /* start board low layer private functions */
 /*!

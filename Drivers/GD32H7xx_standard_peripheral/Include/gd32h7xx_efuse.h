@@ -2,11 +2,11 @@
     \file    gd32h7xx_efuse.h
     \brief   definitions for the EFUSE
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 */
 
 /*
-    Copyright (c) 2024, GigaDevice Semiconductor Inc.
+    Copyright (c) 2025, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -252,7 +252,7 @@ void efuse_interrupt_enable(uint32_t interrupt);
 /* disable EFUSE interrupt */
 void efuse_interrupt_disable(uint32_t interrupt);
 /* check EFUSE interrupt flag is set or not */
-FlagStatus efuse_interrupt_flag_get(uint32_t int_flag);
+FlagStatus efuse_interrupt_flag_get(efuse_interrupt_flag_enum int_flag);
 /* clear EFUSE pending interrupt flag */
 void efuse_interrupt_flag_clear(uint32_t int_flag);
 

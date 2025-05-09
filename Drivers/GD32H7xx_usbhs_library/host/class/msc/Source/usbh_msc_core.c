@@ -2,11 +2,11 @@
     \file    usbh_core.c
     \brief   USB MSC(mass storage device) class driver
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 */
 
 /*
-    Copyright (c) 2024, GigaDevice Semiconductor Inc.
+    Copyright (c) 2025, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -51,7 +51,7 @@ usbh_class usbh_msc = {
     usbh_msc_itf_init,
     usbh_msc_itf_deinit,
     usbh_msc_req,
-    usbh_msc_handle,
+    usbh_msc_handle
 };
 
 /*!
@@ -110,7 +110,7 @@ usbh_status usbh_msc_read(usbh_host *uhost, \
     timeout = uhost->control.timer;
 
     while(USBH_BUSY == usbh_msc_rdwr_process(uhost, lun)) {
-        if(((uhost->control.timer - timeout) > (1000U * length)) || (0U == udev->host.connect_status)) {
+        if(((uhost->control.timer - timeout) > (10000U * length)) || (0U == udev->host.connect_status)) {
             msc->state = MSC_IDLE;
             return USBH_FAIL;
         }
@@ -156,7 +156,7 @@ usbh_status usbh_msc_write(usbh_host *uhost, \
     timeout = uhost->control.timer;
 
     while(USBH_BUSY == usbh_msc_rdwr_process(uhost, lun)) {
-        if(((uhost->control.timer - timeout) > (1000U * length)) || (0U == udev->host.connect_status)) {
+        if(((uhost->control.timer - timeout) > (10000U * length)) || (0U == udev->host.connect_status)) {
             msc->state = MSC_IDLE;
             return USBH_FAIL;
         }

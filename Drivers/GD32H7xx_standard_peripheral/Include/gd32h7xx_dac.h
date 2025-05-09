@@ -2,11 +2,11 @@
     \file    gd32h7xx_dac.h
     \brief   definitions for the DAC
     
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 */
 
 /*
-    Copyright (c) 2024, GigaDevice Semiconductor Inc.
+    Copyright (c) 2025, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -217,11 +217,11 @@ OF SUCH DAMAGE.
 #define NORMAL_PIN_BUFFON                 MODE(0)                              /*!< DACx_OUTy work in normal mode and connect to external pin with buffer enable */
 #define NORMAL_PIN_PERIPH_BUFFON          MODE(1)                              /*!< DACx_OUTy work in normal mode and connect to external pin and on chip peripherals with buffer enable */
 #define NORMAL_PIN_BUFFOFF                MODE(2)                              /*!< DACx_OUTy work in normal mode and connect to external pin with buffer disable */
-#define NORMAL_PIN_PERIPH_BUFFOFF         MODE(3)                              /*!< DACx_OUTy work in normal mode and connect to on chip peripherals with buffer disable */
+#define NORMAL_PERIPH_BUFFOFF             MODE(3)                              /*!< DACx_OUTy work in normal mode and connect to on chip peripherals with buffer disable */
 #define SAMPLEKEEP_PIN_BUFFON             MODE(4)                              /*!< DACx_OUTy work in sample and keep mode and connect to external pin with buffer enable */
 #define SAMPLEKEEP_PIN_PERIPH_BUFFON      MODE(5)                              /*!< DACx_OUTy work in sample and keep mode and connect to external pin and on chip peripherals with buffer enable */
 #define SAMPLEKEEP_PIN_BUFFOFF            MODE(6)                              /*!< DACx_OUTy work in sample and keep mode and connect to external pin and on chip peripherals with buffer disable */
-#define SAMPLEKEEP_PIN_PERIPH_BUFFOFF     MODE(7)                              /*!< DACx_OUTy work in sample and keep mode and connect to on chip peripherals with buffer disable */
+#define SAMPLEKEEP_PERIPH_BUFFOFF         MODE(7)                              /*!< DACx_OUTy work in sample and keep mode and connect to on chip peripherals with buffer disable */
 
 /* DAC output channel definitions */
 #define DAC_OUT0                          ((uint8_t)0x00U)                     /*!< DACx_OUT0 channel */

@@ -2,11 +2,11 @@
     \file    gd32h7xx_gpio.c
     \brief   GPIO driver
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 */
 
 /*
-    Copyright (c) 2024, GigaDevice Semiconductor Inc.
+    Copyright (c) 2025, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -398,7 +398,7 @@ uint16_t gpio_output_port_get(uint32_t gpio_periph)
                              SPI1, SPI2, SPI5, SDIO0, USBHS1
       \arg        GPIO_AF_8: UART3, UART4, UART7, SPI5, SDIO0, RSPDIF, TIMER44, USBHS1, SAI1, SAI2
       \arg        GPIO_AF_9: SDIO1, TRGSEL, CAN0, CAN1, TLI, OPSIM, EXMC, RSPDIF, SAI2
-      \arg        GPIO_AF_10: SAI1, SAI2, OTG0, SDIO1, CMP, USBHS0, OPSIM, EXMC
+      \arg        GPIO_AF_10: SAI1, SAI2, SDIO1, CMP, USBHS0, OPSIM, EXMC
       \arg        GPIO_AF_11: ETH0, MDIO, CMP, UART6, EXMC, HPDF, I2C3, TLI, SDIO1, OPSIM
       \arg        GPIO_AF_12: TIMER0, MDIOS, SDIO0, EXMC, OPSIM, CMP, TLI, USBHS1
       \arg        GPIO_AF_13: TRGSEL, DCI, COMP0, CMP, TIMER22

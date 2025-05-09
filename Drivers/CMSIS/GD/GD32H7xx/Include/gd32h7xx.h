@@ -2,12 +2,12 @@
     \file    gd32h7xx.h
     \brief   general definitions for GD32H7xx
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 */
 
 /*
  * Copyright (c) 2009-2021 Arm Limited. All rights reserved.
- * Copyright (c) 2024, GigaDevice Semiconductor Inc.
+ * Copyright (c) 2025, GigaDevice Semiconductor Inc.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -97,9 +97,9 @@ extern "C" {
 #define LXTAL_STARTUP_TIMEOUT   ((uint32_t)0x0FFFFFFF)
 #endif /* low speed crystal oscillator startup timeout */
 
-/* GD32H7xx firmware library version number V1.3.0 */
+/* GD32H7xx firmware library version number V1.4.0 */
 #define __GD32H7XX_STDPERIPH_VERSION_MAIN   (0x01) /*!< [31:24] main version     */
-#define __GD32H7XX_STDPERIPH_VERSION_SUB1   (0x03) /*!< [23:16] sub1 version     */
+#define __GD32H7XX_STDPERIPH_VERSION_SUB1   (0x04) /*!< [23:16] sub1 version     */
 #define __GD32H7XX_STDPERIPH_VERSION_SUB2   (0x00) /*!< [15:8]  sub2 version     */
 #define __GD32H7XX_STDPERIPH_VERSION_RC     (0x00) /*!< [7:0]  release candidate */
 #define __GD32H7XX_STDPERIPH_VERSION        ((__GD32H7XX_STDPERIPH_VERSION_MAIN << 24)\

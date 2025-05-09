@@ -2,7 +2,7 @@
     \file    sdcard.c
     \brief   SD card driver 
     
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-02-19, V2.1.0, demo for GD32H7xx
 */
 
 /*
@@ -2466,12 +2466,11 @@ static void gpio_config(void)
 */
 static void rcu_config(void)
 {
-    /* SDIO clock */
+    /* SDIO clock 200M */
     /* configure the pll1 input and output clock range */
     rcu_pll_input_output_clock_range_config(IDX_PLL1, RCU_PLL1RNG_4M_8M, RCU_PLL1VCO_192M_836M);
     /* configure the PLL1 clock: CK_PLL1P/CK_PLL1Q/CK_PLL1R = HXTAL_VALUE / 5 * 40 / 1 */
-    /* SDIO clock 400M */
-    rcu_pll1_config(5, 160, 1, 2, 2);
+    rcu_pll1_config(5, 40, 1, 1, 1);
     /* enable PLL1R clock output */
     rcu_pll_clock_output_enable(RCU_PLL1R);
     /* enable PLL1 clock */
@@ -2481,7 +2480,7 @@ static void rcu_config(void)
         while(1) {
         }
     }
-    
+
     rcu_periph_clock_enable(RCU_GPIOB);
     rcu_periph_clock_enable(RCU_GPIOC);
     rcu_periph_clock_enable(RCU_GPIOD);

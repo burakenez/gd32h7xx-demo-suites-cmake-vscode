@@ -6,7 +6,7 @@
 
 /*
  * Copyright (c) 2009-2021 Arm Limited. All rights reserved.
- * Copyright (c) 2024, GigaDevice Semiconductor Inc.
+ * Copyright (c) 2025, GigaDevice Semiconductor Inc.
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -67,12 +67,6 @@ the following macro SEL_PMU_SMPS_MODE.
 #if defined(GD32H7XXI)
 //#define SEL_PMU_SMPS_MODE   PMU_LDO_SUPPLY
 //#define SEL_PMU_SMPS_MODE   PMU_DIRECT_SMPS_SUPPLY
-//#define SEL_PMU_SMPS_MODE   PMU_SMPS_1V8_SUPPLIES_LDO
-//#define SEL_PMU_SMPS_MODE   PMU_SMPS_2V5_SUPPLIES_LDO
-//#define SEL_PMU_SMPS_MODE   PMU_SMPS_1V8_SUPPLIES_EXT_AND_LDO
-//#define SEL_PMU_SMPS_MODE   PMU_SMPS_2V5_SUPPLIES_EXT_AND_LDO
-//#define SEL_PMU_SMPS_MODE   PMU_SMPS_1V8_SUPPLIES_EXT
-//#define SEL_PMU_SMPS_MODE   PMU_SMPS_2V5_SUPPLIES_EXT
 //#define SEL_PMU_SMPS_MODE   PMU_BYPASS
 #elif defined(GD32H7XXZ) | defined(GD32H7XXV)
 //#define SEL_PMU_SMPS_MODE   PMU_LDO_SUPPLY

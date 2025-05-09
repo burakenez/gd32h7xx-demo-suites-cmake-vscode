@@ -2,11 +2,11 @@
     \file    gd32h7xx_hpdf.c
     \brief   HPDF driver
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 */
 
 /*
-    Copyright (c) 2024, GigaDevice Semiconductor Inc.
+    Copyright (c) 2025, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -68,8 +68,8 @@ void hpdf_deinit(void)
 /*!
     \brief      initialize the parameters of HPDF channel struct with the default values
     \param[in]  init_struct: the initialization data needed to initialize HPDF
-                  serial_interface: EXTERNAL_CKIN, INTERNAL_CKOUT, HALF_CKOUT_FALLING_EDGE, HALF_CKOUT_RISING_EDGE
-                  spi_ck_source: SPI_RISING_EDGE, SPI_FALLING_EDGE, MANCHESTER_CODE0, MANCHESTER_CODE1
+                  spi_ck_source: EXTERNAL_CKIN, INTERNAL_CKOUT, HALF_CKOUT_FALLING_EDGE, HALF_CKOUT_RISING_EDGE
+                  serial_interface: SPI_RISING_EDGE, SPI_FALLING_EDGE, MANCHESTER_CODE0, MANCHESTER_CODE1
                   malfunction_monitor: MM_DISABLE, MM_ENABLE
                   calibration_offset: calibration offset(-8388608 ~ 8388607)
                   right_bit_shift: data right bit-shift(0 ~ 31)
@@ -212,8 +212,8 @@ void hpdf_disable(void)
     \brief      initialize the HPDF channel
     \param[in]  channelx: CHANNELx(x=0..7)
     \param[in]  init_struct: the initialization data needed to initialize HPDF channel
-                  serial_interface: EXTERNAL_CKIN, INTERNAL_CKOUT, HALF_CKOUT_FALLING_EDGE, HALF_CKOUT_RISING_EDGE
-                  spi_ck_source: SPI_RISING_EDGE, SPI_FALLING_EDGE, MANCHESTER_CODE0, MANCHESTER_CODE1
+                  spi_ck_source: EXTERNAL_CKIN, INTERNAL_CKOUT, HALF_CKOUT_FALLING_EDGE, HALF_CKOUT_RISING_EDGE
+                  serial_interface: SPI_RISING_EDGE, SPI_FALLING_EDGE, MANCHESTER_CODE0, MANCHESTER_CODE1
                   malfunction_monitor: MM_DISABLE, MM_ENABLE
                   calibration_offset: calibration offset(-8388608 ~ 8388607)
                   right_bit_shift: data right bit-shift(0 ~ 31)
@@ -333,7 +333,7 @@ void hpdf_rc_init(hpdf_filter_enum filtery, hpdf_rc_parameter_struct *init_struc
                   icdmaen: ICDMAEN_DISABLE, ICDMAEN_ENABLE
                   ic_channel_group: ICGSEL_CHANNELx(x=0..7)
                   icsyn: ICSYN_DISABLE, ICSYN_ENABLE
-                  trigger_dege: TRG_DISABLE, RISING_EDGE_TRG, FALLING_EDGE_TRG, EDGE_TRG
+                  trigger_edge: TRG_DISABLE, RISING_EDGE_TRG, FALLING_EDGE_TRG, EDGE_TRG
                   trigger_signal: HPDF_ITRGx(x=0..8), HPDF_ITRG11, HPDF_ITRG12, HPDF_ITRG24, HPDF_ITRG25, HPDF_ITRG31
     \param[out] none
     \retval     none

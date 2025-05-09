@@ -2,11 +2,11 @@
     \file    gd32h7xx_cpdm.c
     \brief   CPDM driver
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 */
 
 /*
-    Copyright (c) 2024, GigaDevice Semiconductor Inc.
+    Copyright (c) 2025, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -44,6 +44,8 @@ OF SUCH DAMAGE.
 #define CPDM_DLLEN_11                          ((uint32_t)0x04000000U)  /*!< CPDM delay line length bit 11 */
 #define CPDM_DLLEN_10                          ((uint32_t)0x08000000U)  /*!< CPDM delay line length bit 10 */
 #define CPDM_DLLEN_10_0_MASK                   ((uint32_t)0x7FFU)       /*!< CPDM delay line length bit 10 to bit 0 mask */
+
+#define CPDM_MAX_TIMEOUT                       ((uint32_t)0x0000FFFFU)  /*!< count to judge of CPDM timeout */
 
 /*!
     \brief      enable CPDM
@@ -141,6 +143,27 @@ void cpdm_output_clock_phase_select(uint32_t cpdm_periph, cpdm_output_phase_enum
 }
 
 /*!
+    \brief      configure CPDM delay step
+    \param[in]  cpdm_periph: the clock phase delay module of SDIO
+                only one parameter can be selected which is shown as below:
+      \arg        CPDM_SDIO0: clock phase delay module of SDIO0
+      \arg        CPDM_SDIO1: clock phase delay module of SDIO1
+    \param[in]  delay_step: 0 ~ 127
+    \param[out] none
+    \retval     none
+*/
+void cpdm_delay_step_config(uint32_t cpdm_periph, uint8_t delay_step)
+{
+    uint32_t reg = 0U;
+
+    reg = CPDM_CFG(cpdm_periph);
+    reg &= CPDM_DLSTCNT_MASK;
+    /* configure delay step */
+    reg |= ((uint32_t)delay_step << CPDM_DLSTCNT_OFFSET);
+    CPDM_CFG(cpdm_periph) = (uint32_t)reg;
+}
+
+/*!
     \brief      get delay line length valid flag
     \param[in]  cpdm_periph: the clock phase delay module of SDIO
                 only one parameter can be selected which is shown as below:
@@ -197,13 +220,14 @@ uint16_t cpdm_delayline_length_get(uint32_t cpdm_periph)
       \arg        CPDM_OUTPUT_PHASE_SELECTION_11: output clock phase = input clock + 11 * UNIT delay
       \arg        CPDM_OUTPUT_PHASE_SELECTION_12: output clock phase = input clock + 12 * UNIT delay
     \param[out] none
-    \retval     none
+    \retval     ErrStatus: SUCCESS or ERROR
 */
-void cpdm_clock_output(uint32_t cpdm_periph, cpdm_output_phase_enum output_clock_phase)
+ErrStatus cpdm_clock_output(uint32_t cpdm_periph, cpdm_output_phase_enum output_clock_phase)
 {
     uint32_t reg = 0U;
     uint32_t reg_cfg = 0U;
     uint32_t delay_count = 0U;
+    uint32_t timeout = 0U;
 
     /* enable CPDM and delay line sample module */
     CPDM_CTL(cpdm_periph) = 0U;
@@ -221,9 +245,13 @@ void cpdm_clock_output(uint32_t cpdm_periph, cpdm_output_phase_enum output_clock
         reg |= delay_count << CPDM_DLSTCNT_OFFSET;
         CPDM_CFG(cpdm_periph) = (uint32_t)reg;
 
-        while(SET == (CPDM_CFG(cpdm_periph) & CPDM_CFG_DLLENF)) {
-        }
         while(RESET == (CPDM_CFG(cpdm_periph) & CPDM_CFG_DLLENF)) {
+            timeout++;
+
+            if(timeout > CPDM_MAX_TIMEOUT)
+            {
+                return ERROR;
+            }
         }
 
         reg_cfg = CPDM_CFG(cpdm_periph);
@@ -243,4 +271,6 @@ void cpdm_clock_output(uint32_t cpdm_periph, cpdm_output_phase_enum output_clock
     CPDM_CFG(cpdm_periph) = (uint32_t)reg;
     /* disable delay line sample module */
     CPDM_CTL(cpdm_periph) = CPDM_CTL_CPDMEN;
+    
+    return SUCCESS;
 }

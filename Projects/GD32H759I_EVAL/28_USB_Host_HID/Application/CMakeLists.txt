@@ -13,7 +13,7 @@ set(TARGET_SRC
     Core/Src/lcd_log.c
     Core/Src/usbh_usr.c
     Core/Src/usbh_usr_lcd.c
-    Core/Src/system_gd32h7xx.c	
+    Core/Src/system_gd32h7xx.c
 	
     # Startup
     Startup/startup_gd32h7xx.s

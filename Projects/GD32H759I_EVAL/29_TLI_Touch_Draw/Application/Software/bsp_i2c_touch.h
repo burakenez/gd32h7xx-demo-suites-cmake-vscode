@@ -2,7 +2,7 @@
     \file    bsp_i2c_touch.h
     \brief   the header file of i2c touch driver
 
-    \version 2023-03-31, V1.0.0, demo for GD32H7xx
+    \version 2025-02-19, V2.1.0, demo for GD32H7xx
 */
 
 /*

@@ -2,7 +2,7 @@
     \file    gd32h759i_eval.h
     \brief   definitions for gd32H59_EVAL's leds, keys and COM ports hardware resources
     
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-02-19, V2.1.0, demo for GD32H7xx
 */
 
 /*

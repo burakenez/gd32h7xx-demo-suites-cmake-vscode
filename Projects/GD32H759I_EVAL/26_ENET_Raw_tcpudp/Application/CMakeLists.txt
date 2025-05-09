@@ -11,7 +11,7 @@ set(TARGET_SRC
     Core/Src/netconf.c
     Core/Src/tcp_client.c
     Core/Src/udp_echo.c
-    Core/Src/system_gd32h7xx.c	
+    Core/Src/system_gd32h7xx.c
 	
     # lwip/port/GD32H7xx/Basic
     lwip/port/GD32H7xx/Basic/ethernetif.c

@@ -2,7 +2,7 @@
     \file    systick.h
     \brief   the header file of systick
 
-    \version 2023-3-31, V1.0.0, demo for GD32H7xx
+    \version 2025-02-19, V2.1.0, demo for GD32H7xx
 */
 
 /*

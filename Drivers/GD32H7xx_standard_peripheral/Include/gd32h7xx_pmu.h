@@ -2,11 +2,11 @@
     \file    gd32h7xx_pmu.h
     \brief   definitions for the PMU
 
-    \version 2024-07-31, V2.0.0, demo for GD32H7xx
+    \version 2025-01-24, V1.4.0, firmware for GD32H7xx
 */
 
 /*
-    Copyright (c) 2024, GigaDevice Semiconductor Inc.
+    Copyright (c) 2025, GigaDevice Semiconductor Inc.
 
     Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
@@ -85,8 +85,6 @@ OF SUCH DAMAGE.
 #define PMU_CTL2_BYPASS                 BIT(0)                              /*!< power management unit bypass control bit */
 #define PMU_CTL2_LDOEN                  BIT(1)                              /*!< Low drop-out voltage stabilizer enable bit */
 #define PMU_CTL2_DVSEN                  BIT(2)                              /*!< step-down voltage stabilizer enable bit */
-#define PMU_CTL2_DVSCFG                 BIT(3)                              /*!< SMPS step-down converter forced on and in high power MR mode */
-#define PMU_CTL2_DVSVC                  BITS(4,5)                           /*!< SMPS step-down converter voltage output level selection */
 #define PMU_CTL2_VCRSEL                 BIT(8)                              /*!< VBAT battery charging resistor selection */
 #define PMU_CTL2_VCEN                   BIT(9)                              /*!< VBAT battery charging enable */
 #define PMU_CTL2_DVSRF                  BIT(16)                             /*!< step-down voltage stabilizer ready flag bit */
@@ -127,11 +125,6 @@ OF SUCH DAMAGE.
 #define PMU_VAVDVC_1                    CTL0_VAVDVC(1)                      /*!< voltage threshold is 2.1V */
 #define PMU_VAVDVC_2                    CTL0_VAVDVC(2)                      /*!< voltage threshold is 2.5V */
 #define PMU_VAVDVC_3                    CTL0_VAVDVC(3)                      /*!< voltage threshold is 2.8V */
-
-/* PMU step-down voltage stabilizer output level definitions */
-#define CTL2_DVSVC(regval)              (BITS(4,5) & ((uint32_t)(regval) << 4U))
-#define PMU_STEPDOWNVOL_1P8             CTL2_DVSVC(1)                       /*!< SMPS step-down converter voltage output level 1.8V */
-#define PMU_STEPDOWNVOL_2P5             CTL2_DVSVC(2)                       /*!< SMPS step-down converter voltage output level 2.5V */
 
 /* PMU VBAT battery charging resistor selection */
 #define CTL2_VCRSEL(regval)             (BIT(9) & ((uint32_t)(regval) << 9U))
@@ -182,12 +175,6 @@ OF SUCH DAMAGE.
 /* PMU SMPS LDO supply mode definitions */
 #define PMU_LDO_SUPPLY                      PMU_CTL2_LDOEN                                                              /*!< V0.9V domains are suppplied from the LDO */
 #define PMU_DIRECT_SMPS_SUPPLY              PMU_CTL2_DVSEN                                                              /*!< V0.9V domains are suppplied from the SMPS only */
-#define PMU_SMPS_1V8_SUPPLIES_LDO           (PMU_STEPDOWNVOL_1P8 | PMU_CTL2_DVSEN | PMU_CTL2_LDOEN)                     /*!< The SMPS 1.8V output supplies the LDO which supplies the V0.9V domains */
-#define PMU_SMPS_2V5_SUPPLIES_LDO           (PMU_STEPDOWNVOL_2P5 | PMU_CTL2_DVSEN | PMU_CTL2_LDOEN)                     /*!< The SMPS 2.5V output supplies the LDO which supplies the V0.9V domains */
-#define PMU_SMPS_1V8_SUPPLIES_EXT_AND_LDO   (PMU_STEPDOWNVOL_1P8 | PMU_CTL2_DVSCFG | PMU_CTL2_DVSEN | PMU_CTL2_LDOEN)   /*!< The SMPS 1.8V output supplies an external circuits and the LDO. The V0.9V domains are suppplied from the LDO */
-#define PMU_SMPS_2V5_SUPPLIES_EXT_AND_LDO   (PMU_STEPDOWNVOL_2P5 | PMU_CTL2_DVSCFG | PMU_CTL2_DVSEN | PMU_CTL2_LDOEN)   /*!< The SMPS 2.5V output supplies an external circuits and the LDO. The V0.9V domains are suppplied from the LDO */
-#define PMU_SMPS_1V8_SUPPLIES_EXT           (PMU_STEPDOWNVOL_1P8 | PMU_CTL2_DVSCFG | PMU_CTL2_DVSEN | PMU_CTL2_BYPASS)  /*!< The SMPS 1.8V output supplies an external source which supplies the V0.9V domains */
-#define PMU_SMPS_2V5_SUPPLIES_EXT           (PMU_STEPDOWNVOL_2P5 | PMU_CTL2_DVSCFG | PMU_CTL2_DVSEN | PMU_CTL2_BYPASS)  /*!< The SMPS 2.5V output supplies an external source which supplies the V0.9V domains */
 #define PMU_BYPASS                          PMU_CTL2_BYPASS                                                             /*!< The SMPS disabled and the LDO Bypass. The V0.9V domains are supplied from an external source */
 
 /* PMU command constants definitions */
